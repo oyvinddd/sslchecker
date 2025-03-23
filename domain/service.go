@@ -18,7 +18,16 @@ func NewMockedService() Service {
 	}
 }
 
-func (mockedService)Register(domain Domain) error {
+func (s mockedService)Register(domainURL string) error {
+
+	newDomain, err := New(domainURL)
+	if err != nil {
+		return err
+	}
+
+	s.domains = append(s.domains, *newDomain)
+
 	return nil
 }
+
 

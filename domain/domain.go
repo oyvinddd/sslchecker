@@ -15,10 +15,10 @@ type Domain struct {
 	Webhook *string `json:"webhook,omitzero"`
 }
 
-func New(urlString string) (*Domain, error) {
-	resultingUrl, err := url.Parse(urlString)
+func New(domainURL string) (*Domain, error) {
+	u, err := url.Parse(domainURL)
 	if err != nil {
 		return nil, err
 	}
-	return &Domain{URL: resultingUrl}
+	return &Domain{URL: u}
 }
