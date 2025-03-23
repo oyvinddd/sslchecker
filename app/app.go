@@ -44,6 +44,7 @@ func New(config Configuration) *App {
 
 	serviceFactory := NewMockedServiceFactory(context.Background(), dbConn)
 	accountService := serviceFactory.AccountService()
+	domainService := serviceFactory.DomainService()
 
 	googleAuthHandler := account.NewGoogleAuthHandler(accountService, googleClientID, googleClientSecret)
 	accountHandler := account.NewHandler(accountService)

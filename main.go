@@ -1,12 +1,12 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
 )
 
 func main() {
-
+	cfg := app.NewConfig(":8888", nil)
+	log.Fatal(app.New(cfg))
+/*
 	var client = http.Client{}
 	res, err := client.Head("https://dummyjson.com/test")
 	if err != nil {
@@ -25,4 +25,6 @@ func main() {
 
 	fmt.Println("Status: ", res.StatusCode)
 	fmt.Println("Content-Length: ", res.ContentLength)
+*/
 }
+
